@@ -12,3 +12,5 @@ elif (d == 0):
     print('x = ', -b/(2*a))
 else:
     print('Нет корней.')
+
+print('zaebli, no spasibo')
