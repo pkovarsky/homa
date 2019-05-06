@@ -14,4 +14,3 @@ else:
     print('Нет корней.')
 
 print('zaebli, no spasibo')
-print('zaebli, no spasibo')
