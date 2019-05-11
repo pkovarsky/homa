@@ -4,11 +4,11 @@
 TEST_STRING = "PeterPidorButNoOnePaysAttention"
 TUPLE_RESULT = tuple(TEST_STRING)
 # Slice last 20 chars in reversed order beging from 5th (5th from end).
-SLICED = TUPLE_RESULT[len(TUPLE_RESULT) - 4:len(TUPLE_RESULT) - 20:-1]
+SLICED = TUPLE_RESULT[-5:- 20:-1]
 # Create dictionary from sliced chars. Print sorted keys of this dictionary.
-KEY_VALUE_TUPLE = tuple(SLICED[i: i + 2] for i in range(0, len(SLICED), 2))
+KEY_VALUE_TUPLE = dict(enumerate(SLICED))
 print("Test 1")
-print("Sorted keys: ", sorted(dict(KEY_VALUE_TUPLE).keys()))
+print("Sorted keys: ", sorted(KEY_VALUE_TUPLE.keys()))
 
 # test 2
 # Create list of chars from a long string.
@@ -22,7 +22,7 @@ FIRST_LIST = list(set(FIRST_LIST))
 # Delete middle element using slice functionality (important).
 print("Test 2")
 print("Before removing: ", FIRST_LIST)
-MIDDLE_ELEMENT = FIRST_LIST[int(len(FIRST_LIST) / 2):int(len(FIRST_LIST) / 2 + 1)]
+MIDDLE_ELEMENT = FIRST_LIST[len(FIRST_LIST) // 2:len(FIRST_LIST) // 2 + 1]
 FIRST_LIST.remove(MIDDLE_ELEMENT[0])
 print("After removing: ", FIRST_LIST)
 
