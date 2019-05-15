@@ -1,16 +1,13 @@
-print ('ax**2+bx+c=0')
-a = int(input())
-b = int(input())
-c = int(input())
-d = b**2-4*a*c
-if (d > 0):
-    x1 = (-b + d ** 0.5) / (2 * a)
-    x2 = (-b - d ** 0.5) / (2 * a)
-    print('x1 = ', x1)
-    print('x2 = ', x2)
-elif (d == 0):
-    print('x = ', -b/(2*a))
-else:
-    print('Нет корней.')
+PETYA = ('ak', 'gh', 'gs', 'gi', 'gg', 'og', 'hs', 'aa', 'se', 'gf', 'jv', 'av', 'sv', 'gz', 'sf', 'ca', 'iv', 'zc',
+         'gd', 'fh', 'ai', 'fa', 'hg', 'ga', 'lx', 'ar', 'gv', 'sa', 'gw', 'sv', 'fp', 'sr', 'fp', 'og', 'pg', 're')
 
-print('zaebli, no spasibo')
+print('Список из 20 переменных от 5ой с конца')
+print(PETYA[-5:-25:-1])
+
+print('Превратили этот список в словарь А')
+PETYA = dict(PETYA)
+print(PETYA)
+
+print('Отсортировали ключи словаря А')
+sorted(PETYA)
+print(PETYA.keys())
