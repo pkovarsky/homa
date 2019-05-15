@@ -11,3 +11,5 @@ print(PETYA)
 print('Отсортировали ключи словаря А')
 sorted(PETYA)
 print(PETYA.keys())
+
+print('Никогда не думал, что я настолько тупой')
