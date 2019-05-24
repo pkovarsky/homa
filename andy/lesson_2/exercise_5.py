@@ -8,6 +8,12 @@
   processArgs(len, [])"""
 
 
+def process_args(*args):
+    """Implement processArgs function"""
+    for value in args:
+        print(value)
+
+
 def convert_cm_to_inches(santimetr):
     """"convert cm to inches"""
     inch = santimetr * 0.3937007874
@@ -19,4 +25,10 @@ def print_diagonal(length, width):
     length = convert_cm_to_inches(length)
     width = convert_cm_to_inches(width)
     diagonal = (length*length + width*width) ** 0.5
-    print(diagonal)
+    return diagonal
+
+
+process_args([print_diagonal(3, 4), 50, True])
+PRINT = {"Nizhnik", "Pidor"}
+process_args(PRINT, 'test')
+process_args(len(PRINT), [])
