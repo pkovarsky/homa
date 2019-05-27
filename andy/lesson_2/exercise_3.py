@@ -2,17 +2,17 @@
 cm to inches and vice versa (convertCmToInches)."""
 
 
-def convert_cm_to_inches(santimetr):
+def convert_to_cm_or_inches(value, measurement):
     """"convert cm to inches"""
-    inch = santimetr * 0.3937007874
-    return inch
+    if measurement == "cm":
+        result = value * 0.3937007874
+    elif measurement == "inches":
+        result = value * 2.54
+    else:
+        result = "Invalid measurement"
+    return result
 
 
-def convert_inches_to_cm(inches):
-    """"convert inches to cm"""
-    santimetr = inches * 2.54
-    return santimetr
-
-
-print(convert_cm_to_inches(20))
-print(convert_inches_to_cm(7.874015748))
+print(convert_to_cm_or_inches(20, "cm"))
+print(convert_to_cm_or_inches(7.874015748, "inches"))
+print(convert_to_cm_or_inches(29, "Igor dick is big"))
