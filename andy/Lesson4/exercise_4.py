@@ -6,8 +6,6 @@ function call return true
 Usage of standard filter function or yor own _filter is forbidden.
 """
 
-from collections import deque
-
 
 def own_find(callback, collection):
     """
@@ -17,11 +15,12 @@ def own_find(callback, collection):
     :return: function returns first item from collection for which callback
     function call return true
     """
-    newlist = deque([], len(collection))
+    newlist = []
     for i in collection:
         if callback(i):
-            newlist.appendleft(i)
-    print(newlist)
+            newlist.append(i)
+            print(newlist)
+            break
 
 
 def pidor_detector(pidorlist):
@@ -33,5 +32,7 @@ def pidor_detector(pidorlist):
     return isinstance(pidorlist, str)
 
 
-PIDORLIST = ["Homa", 228, "Petr", "Nizhnik", 322, "Smusyaooo"]
+PIDORLIST = [228, "Homa", "Petr", "Nizhnik", 322, "Smusyaooo"]
 own_find(pidor_detector, PIDORLIST)
+NOPIDORLIST = [228, 322, 666]
+own_find(pidor_detector, NOPIDORLIST)
