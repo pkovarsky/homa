@@ -15,11 +15,9 @@ def own_find(callback, collection):
     :return: function returns first item from collection for which callback
     function call return true
     """
-    newlist = []
     for i in collection:
         if callback(i):
-            newlist.append(i)
-            print(newlist)
+            print(i)
             break
 
 
