@@ -17,8 +17,8 @@ def own_find(callback, collection):
     """
     for i in collection:
         if callback(i):
-            print(i)
-            break
+            return i
+    return None
 
 
 def pidor_detector(pidorlist):
@@ -31,6 +31,6 @@ def pidor_detector(pidorlist):
 
 
 PIDORLIST = [228, "Homa", "Petr", "Nizhnik", 322, "Smusyaooo"]
-own_find(pidor_detector, PIDORLIST)
+print(own_find(pidor_detector, PIDORLIST))
 NOPIDORLIST = [228, 322, 666]
-own_find(pidor_detector, NOPIDORLIST)
+print(own_find(pidor_detector, NOPIDORLIST))
