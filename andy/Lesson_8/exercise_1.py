@@ -17,6 +17,14 @@
 """
 
 
+class Contact:
+
+    def __init__(self, firstname, lastname, phonenumber):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.phonenumber = phonenumber
+
+
 class PhoneBook:
 
     recentCalls = []
@@ -25,17 +33,17 @@ class PhoneBook:
     def __init__(self):
         self.contacts = []
 
-    def add_contact(self, firstname, lastname, phonenumber):
-        self.contacts.append([firstname, lastname, phonenumber])
+    def add_contact(self, contact):
+        self.contacts.append([contact.firstname, contact.lastname, contact.phonenumber])
 
     def find_contact(self, firstname):
         for contact in self.contacts:
             if firstname in contact:
                 return contact
 
-    def remove_contact(self, firstname, lastname, phonenumber):
+    def remove_contact(self, contact):
         for i in range(len(self.contacts)):
-            if [firstname, lastname, phonenumber] == self.contacts[i]:
+            if [contact] == self.contacts[i]:
                 self.contacts.pop(i)
                 break
 
@@ -51,9 +59,9 @@ class PhoneBook:
     def recent_calls(self):
         return self.recentCalls
 
-    def add_to_favorites(self, firstname, lastname, phonenumber):
-        if [firstname, lastname, phonenumber] in self.contacts:
-            self.favoritesContacts.append([firstname, lastname, phonenumber])
+    def add_to_favorites(self, contact):
+        if [contact.firstname, contact.lastname, contact.phonenumber] in self.contacts:
+            self.favoritesContacts.append([contact.firstname, contact.lastname, contact.phonenumber])
         else:
             print("Contact not found")
 
@@ -62,21 +70,24 @@ class PhoneBook:
         return self.favoritesContacts
 
 
+kovarsky = Contact('petr', 'kovarsky', 102)
+nizhnik = Contact('pizda', 'vagina', 103)
+kovarsky_invalid = Contact('petr', 'kovarsky', 108)
 first = PhoneBook()
-first.add_contact('petr', 'kovarsky', 102)
+first.add_contact(kovarsky)
 print("All contacts: ", first.contacts)
 print("Found contact:", first.find_contact('petr'))
 first.call_method('petr')
 print("Recent calls: ", first.recent_calls)
-first.add_to_favorites('petr', 'kovarsky', 102)
-first.add_to_favorites('pizda', 'vagina', 103)
+first.add_to_favorites(kovarsky)
+first.add_to_favorites(nizhnik)
 print("Favorites: ", first.favorites)
 
 print("Added new contact =========================")
-first.add_contact('petr', 'kovarsky', 108)
+first.add_contact(kovarsky_invalid)
 print("All contacts: ", first.contacts)
-print("Found contact:", first.find_contact('petr'))
+print("Found first petr contact:", first.find_contact('petr'))
 first.call_method(108)
 print("Recent calls: ", first.recent_calls)
-first.remove_contact('petr', 'kovarsky', 102)
+first.remove_contact(kovarsky)
 print("All contacts after removing: ", first.contacts)
